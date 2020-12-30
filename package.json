@@ -1,12 +1,11 @@
 {
-  "name": "tfrecord",
+  "name": "rom1504_tfrecord",
   "version": "0.2.0",
   "description": "Reader and writer for the TensorFlow Record file format",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "prepack": "scripts/generate.sh && node_modules/.bin/tsc",
-    "pretest": "node_modules/.bin/tsc",
+    "prepack": "scripts/generate.sh && node_modules/.bin/tsc --allowJs",
     "test": "node_modules/.bin/mocha lib/**/*_test.js"
   },
   "repository": {
