@@ -24,7 +24,7 @@ export class RecordReader {
     if (this.closed_)
       return null;
 
-    let { bytesRead }  =
+    let bytesRead  =
         await fsRead(this.fd_, this.lengthAndCrcBuffer_, 0, 12, null);
     if (bytesRead === 0)
       return null;
@@ -52,8 +52,7 @@ export class RecordReader {
           new DataView(this.dataBuffer_.buffer, 0, newLength);
     }
 
-    ({ bytesRead } =
-        await fsRead(this.fd_, this.dataBuffer_, 0, readLength, null));
+    bytesRead = await fsRead(this.fd_, this.dataBuffer_, 0, readLength, null));
     if (bytesRead !== readLength) {
       throw new Error(
           `Incomplete read; expected ${readLength} bytes, got ${bytesRead}`);
